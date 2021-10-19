@@ -30,8 +30,75 @@
 -->
 <script>
   "use strict";
+  
+  /**
+   * Считает сумму переданных аргументов 
+   * @param {number} a - Первое число
+   * @param {number} b - Второе число
+   * @return {nunber} - Результат вычисления
+  */
+  function sum(a, b) {
+    return (a + b);
+  }
+  
+  /**
+   * Считает разность переданных аргументов 
+   * @param {number} a - Первое число
+   * @param {number} b - Второе число
+   * @return {nunber} - Результат вычисления
+  */
+  function dif(a, b) {
+    if (a >= b) {
+      return (a - b);  
+    }
+    else {
+      return (b - a);
+    } 
+  }
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  /**
+   * Считает произведение переданных аргументов 
+   * @param {number} a - Первое число
+   * @param {number} b - Второе число
+   * @return {nunber} - Результат вычисления
+  */
+  function multie(a, b) {
+    return (a * b);
+  }
+
+  /**
+   * Считает частное переданных аргументов 
+   * @param {number} a - Первое число
+   * @param {number} b - Второе число
+   * @return {nunber} - Результат вычисления
+  */
+  function delenie(a, b) {
+    return (a / b);
+  }
+  
+  /**
+   * Считает одно из 4 действий, переданных ей первым аргументом:
+   * "+" - сумма 2 и 3 аргумента
+   * "-" - разность 2 и 3 аргумента (из большего вычитается меньшее)
+   * "*" - произведение 2 и 3 аргумента
+   * "/" - частное 2 от 3 аргумента
+   * @param {string} oper - выполняемое действие
+   * @param {number} a - первое число
+   * @return {number} Результат работы. Если введено отличное от описанных действий,
+   * то будет возвращено NaN
+   */
+  function operation(oper, a, b) {
+    switch (oper) {
+      case "+": return sum(a, b);
+      case "-": return dif(a, b);
+      case "*": return multie(a, b);
+      case "/": return delenie(a, b);
+      default: return NaN;
+    }
+  }
+  // Тест для функций
+  const test = prompt("Введите + или - или / или *");
+  alert(operation(test, 2, 3));
 </script>
 </body>
 </html>

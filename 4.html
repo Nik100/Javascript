@@ -44,7 +44,30 @@
     },
   ];
 
-  // Здесь пишем решение, данный комментарий необходимо стереть.
+  //array1.forEach(element => console.log(element));
+  //products.forEach(element => console.log(element));
+  //products.forEach(element => console.log(element.id));
+
+  //const result = words.filter(word => word.length > 6);
+  //console.log(products.filter(product => product.id > 8));
+  //console.log(products.filter(product => "photos" in product));
+  console.log(products.filter(
+    product => "photos" in product && product.photos.length !== 0
+    ));
+
+  //arr.sort([compareFunction])
+  // сортируем массив числовых значений в порядке возрастания
+  // numbers.sort(( a, b ) =>  a - b);                      // [1, 4, 11, 33, 50, 88, 123]
+  console.log(products.sort((a, b) => a.price - b.price));
+  // аналогично без использования стрелочной функции
+  //numbers.sort(function( a, b ) {return a - b});         // [1, 4, 11, 33, 50, 88, 123]
+  console.log(
+    products.sort(
+      function(a, b) {
+        return a.price - b.price
+      }
+    )
+  );
 </script>
 </body>
 </html>

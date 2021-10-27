@@ -35,47 +35,73 @@
   1. Найти по id, используя getElementById, элемент с id равным "super_link" и
   вывести этот элемент в консоль.
    */
-
+  var id = document.getElementById('super_link');
+  console.log(id);
 
   /*
   2. Внутри всех элементов на странице, которые имеют класс "card-link",
   поменяйте текст внутри элемента на "ссылка".
    */
-
+  id = document.getElementsByClassName('card-link');
+  //console.log(id);
+  /*
+  Array.prototype.forEach.call(id, function(id) {
+    console.log(id);
+  });
+  */
+  //Array.prototype.forEach.call(id, id => console.log(id.textContent));
+  Array.prototype.forEach.call(id, id => id.textContent = 'Ссылка');
 
   /*
   3. Найти все элементы на странице с классом "card-link", которые лежат в
   элементе с классом "card-body" и вывести полученную коллекцию в консоль.
    */
-
-
+  /*
+   id = document.getElementsByClassName('card-body');
+    Array.prototype.forEach.call(id, id => console.log(id.getElementsByClassName('card-link')));
+  */
+  id = document.querySelectorAll('.card-body .card-link');
+  console.log(id);
   /*
   4. Найти первый попавшийся элемент на странице у которого есть атрибут
   data-number со значением 50 и вывести его в консоль.
    */
-
-
+  id = document.querySelector('[data-number="50"]');
+  console.log(id);
+  
   /*
   5. Выведите содержимое тега title в консоль.
    */
-
+  id = document.title;
+  console.log(id);
 
   /*
   6. Получите элемент с классом "card-title" и выведите его родительский узел
   в консоль.
    */
+  id = document.getElementsByClassName('card-title');
+  console.log(id[0].parentNode);
 
+  id = document.querySelector('.card-title');
+  console.log(id.parentNode);
 
   /*
   7. Создайте тег `p`, запишите внутри него текст "Привет" и добавьте созданный
   тег в начало элемента, который имеет класс "card".
    */
-
+  const tagWork = document.createElement('p');
+  tagWork.textContent = 'Привет';
+  console.log(tagWork);
+  id = document.querySelector('.card');
+  console.log(id);
+  id.prepend(tagWork);
 
   /*
   8. Удалите тег h6 на странице.
    */
-
+  id = document.querySelector('h6');
+  console.log(id);
+  id.style.display = 'none'
 
 </script>
 </body>

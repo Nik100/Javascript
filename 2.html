@@ -50,6 +50,9 @@
   моментально отображаться в span. То есть при печати в input'е тег span также
   должен меняться.
   */
+  document.querySelector('input').addEventListener('input', el => {
+    document.querySelector('span').textContent = el.target.value;
+  });
 
 
   /*
@@ -58,7 +61,10 @@
   1) добавить два класса: animate__animated и animate__fadeInLeftBig
   2) поставить данному элементу стиль visibility в значение 'visible'.
    */
-
+  document.querySelector('button').addEventListener('click', () => {
+    document.querySelector('.message').classList.add('animate__animated', 'animate__fadeInLeftBig');
+    document.querySelector('.message').style.visibility = 'visible';
+  });
 
   /*
   3. Необходимо при отправке формы проверить, заполнены ли все поля в этой
@@ -68,6 +74,60 @@
   то выделение данного поля надо убрать.
    */
 
+  const input1 = document.getElementById('first');
+  //console.log(input1);
+  const input2 = document.getElementById('second');
+  //console.log(input2);
+  document.querySelector('form').addEventListener('submit', el => {
+    if (input1.value === "") {
+      input1.style.borderColor = 'red';
+      e.preventDefault();
+    }
+    if (input2.value === "") {
+      input2.style.borderColor = 'red';
+      e.preventDefault();
+    }
+  });
+
+  input1.addEventListener('change', e => {
+    if (e.target.value !== '') {
+      e.target.style.borderColor = '';
+    }
+  });
+
+  input2.addEventListener('change', e => {
+    if (e.target.value !== '') {
+      e.target.style.borderColor = '';
+    }
+  });
+
+   /*
+  const firstInput = document.getElementById('first');
+  const secondInput = document.getElementById('second');
+
+  document.querySelector('form').addEventListener('submit', e => {
+    const firstIncorrect = firstInput.value === '';
+    const secondInCorrect = secondInput.value === '';
+
+    if (firstIncorrect) {
+      firstInput.style.borderColor = 'red';
+    }
+
+    if (secondInCorrect) {
+      secondInput.style.borderColor = 'red';
+    }
+
+    if (firstIncorrect || secondInCorrect) {
+      e.preventDefault();
+    }
+  });
+
+  [firstInput, secondInput].forEach(el => el.addEventListener('change', e => {
+    if (e.target.value !== '') {
+      e.target.style.borderColor = '';
+    }
+  }));
+  */
 
 </script>
 </body>

@@ -30,18 +30,55 @@
   1. При наведении на любую из звезд, данной звезде должен ставиться класс
   golden, также такой класс должен ставиться всем звездам до нее слева.
   */
-
+  document.querySelector('.stars_container').addEventListener('mouseover', event => {
+    if (!event.target.classList.contains('fas')) {
+      //console.log('1111');
+      return;
+    }
+    let star = event.target;
+    //console.log(star);
+    do {
+      star.classList.add('golden');
+      star = star.previousElementSibling;
+    } while (star);
+  })
 
   /*
   2. Когда мы уводим курсор мыши от звезды, все поставленные классы из первого
   задания должны быть удалены.
    */
-
+   document.querySelector('.stars_container').addEventListener('mouseout', event => {
+    if (!event.target.classList.contains('fas')) {
+      //console.log('1111');
+      return;
+    }
+    let star = event.target;
+    //console.log(star);
+    do {
+      star.classList.remove('golden');
+      star = star.previousElementSibling;
+    } while (star);
+  })
 
   /*
   3. Когда мы переводим мышь от одной звезды к другой, у нас могут мигать
   звезды (временно могут становиться черными). Почему так? Напишите словами.
   Можем ли мы это исправить? Если да, то предложите решение.
+  
+  Сам не разобрался, почитал готовое решение.
+  
+    Дело в том, что между звездами есть пробел, в html это перенос строки. Мы
+  можем либо записать все теги i слитно, без пробелов и переносов строк в html,
+  либо можем исправить это в JavaScript удалив все текстовые узлы в теге с
+  классом stars_container.
+
+  
+   document.querySelector('.stars_container').childNodes.forEach(node => {
+    if (node.nodeName === '#text') {
+      node.remove();
+    }
+  })
+
   */
 
 
